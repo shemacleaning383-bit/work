@@ -52,7 +52,12 @@
 
   <!-- ============================= SECTION 1 — HERO ============================= -->
   <section class="hero" id="top">
-    <div class="container hero__grid">
+    <div class="hero__bg">
+      <img src="assets/images/hero.svg" alt="A Sunday Cleaning team member wiping down a coffee table in a lived-in living room, with a vacuum and cleaning supplies nearby." loading="eager">
+    </div>
+    <div class="hero__scrim" aria-hidden="true"></div>
+
+    <div class="container hero__inner">
 
       <div class="hero__content">
         <p class="hero__eyebrow">Toronto home cleaning</p>
@@ -75,11 +80,7 @@
         </dl>
       </div>
 
-      <div class="hero__media">
-        <div class="hero__frame">
-          <img src="assets/images/hero.svg" width="1200" height="1500" alt="A Sunday Cleaning team member wiping down a coffee table in a lived-in living room, with a vacuum and cleaning supplies nearby." loading="eager">
-        </div>
-      </div>
+      <div class="hero__panel-row">
 
       <!-- Visible interactive booking calendar -->
       <div class="booking-panel" id="heroBookingPanel">
@@ -110,6 +111,8 @@
         <p class="booking-panel__error" data-role="hero-error" role="alert">Please choose a service and date before continuing.</p>
 
         <button type="button" class="btn btn-primary btn-block" data-role="continue-booking">Continue Booking</button>
+      </div>
+
       </div>
 
     </div>

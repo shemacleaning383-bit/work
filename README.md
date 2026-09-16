@@ -112,7 +112,7 @@ filenames, similar aspect ratios, so no HTML/CSS changes are required):
 
 | File | Used for | Suggested aspect ratio |
 |---|---|---|
-| `assets/images/hero.svg` | Hero image | 4:5 (portrait) |
+| `assets/images/hero.svg` | Hero full-bleed background | fills the hero (any ratio works; `object-fit: cover` crops it — a portrait or square shot with the subject upper-left to upper-center reads best against the current text/scrim layout) |
 | `assets/images/living-room.svg` | Spaces gallery | 3:4 |
 | `assets/images/kitchen.svg` | Spaces gallery | 3:4 |
 | `assets/images/bathroom.svg` | Spaces gallery | 3:4 |
@@ -128,6 +128,30 @@ If you switch these to `.jpg`/`.webp`, update the `src` attributes in
 `index.html` accordingly, and export a couple of sizes for responsive
 `srcset` if you want to optimize further. The hero image loads eagerly
 (`loading="eager"`); every other image is `loading="lazy"`.
+
+### Hero background and text legibility
+
+The hero renders the photo edge-to-edge as a full-bleed background
+(`.hero__bg` in `index.html`, styled in `styles.css`) with the headline,
+subtitle, stat chips and booking panel layered on top. Legibility over an
+arbitrary photo is handled by three independent layers, all in
+`styles.css` under "Hero — full-bleed photo background":
+
+1. `.hero__scrim` — a layered gradient (a darker pool over the text
+   corner, plus top/bottom and left/right fades) sitting between the
+   photo and the content.
+2. `text-shadow` on the eyebrow, headline, subtitle and stat values, so
+   type stays crisp even over a lighter patch of photo.
+3. `.hero__meta-item` — the three stat chips get their own translucent,
+   blurred backing (`backdrop-filter: blur`) rather than relying on the
+   scrim alone.
+4. The booking panel stays fully opaque (`var(--cream)`) with a strong
+   drop shadow, so it's always readable regardless of what's behind it.
+
+If a future photo is much lighter or busier than the current placeholder,
+re-tune the two `rgba(20, 20, 16, …)` opacity values in `.hero__scrim`
+(and `.hero__bg img`'s `object-position`, which currently frames the
+upper portion of the frame) rather than changing the text styling.
 
 ## Fonts
 
