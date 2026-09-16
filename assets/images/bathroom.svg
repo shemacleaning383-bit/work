@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" role="img" aria-labelledby="t3">
+  <title id="t3">Placeholder image representing a clean bathroom</title>
+  <defs>
+    <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#EAE6DE"/>
+      <stop offset="1" stop-color="#CFC7B4"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="800" fill="url(#g3)"/>
+  <g stroke="#50583C" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.75">
+    <rect x="150" y="440" width="300" height="110" rx="55"/>
+    <line x1="150" y1="470" x2="450" y2="470"/>
+    <rect x="270" y="360" width="60" height="60" rx="10"/>
+  </g>
+  <g fill="#4C5438" opacity="0.12">
+    <rect x="120" y="220" width="80" height="120" rx="6"/>
+    <rect x="220" y="220" width="80" height="120" rx="6"/>
+  </g>
+</svg>

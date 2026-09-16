@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" role="img" aria-labelledby="heroTitle">
+  <title id="heroTitle">Placeholder: tidying a sunlit living room, standing in for the supplied hero photograph</title>
+  <defs>
+    <linearGradient id="heroBg" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0" stop-color="#F7F3EA"/>
+      <stop offset="1" stop-color="#DCD3BE"/>
+    </linearGradient>
+    <radialGradient id="heroSun" cx="0.8" cy="0.12" r="0.55">
+      <stop offset="0" stop-color="#EFE3B9" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#EFE3B9" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="heroGrain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.03 0"/>
+      <feComposite operator="over" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="1500" fill="url(#heroBg)"/>
+  <rect width="1200" height="1500" fill="url(#heroSun)"/>
+
+  <!-- window -->
+  <g opacity="0.5">
+    <rect x="70" y="90" width="360" height="480" fill="#EFEADC" stroke="#B9AE93" stroke-width="4"/>
+    <line x1="250" y1="90" x2="250" y2="570" stroke="#B9AE93" stroke-width="4"/>
+    <line x1="70" y1="330" x2="430" y2="330" stroke="#B9AE93" stroke-width="4"/>
+  </g>
+
+  <!-- rug -->
+  <ellipse cx="620" cy="1230" rx="480" ry="150" fill="#CBBFA0" opacity="0.35"/>
+  <ellipse cx="620" cy="1230" rx="420" ry="128" fill="none" stroke="#8C8161" stroke-width="3" stroke-dasharray="2 14" opacity="0.5"/>
+
+  <!-- sofa -->
+  <g opacity="0.9">
+    <rect x="60" y="880" width="560" height="230" rx="28" fill="#96977B"/>
+    <rect x="60" y="820" width="560" height="120" rx="26" fill="#A7A98A"/>
+    <rect x="90" y="850" width="160" height="150" rx="20" fill="#B7B899"/>
+    <rect x="270" y="850" width="160" height="150" rx="20" fill="#B7B899"/>
+    <rect x="450" y="850" width="150" height="150" rx="20" fill="#B7B899"/>
+    <rect x="36" y="900" width="40" height="190" rx="18" fill="#7C7D63"/>
+    <rect x="596" y="900" width="40" height="190" rx="18" fill="#7C7D63"/>
+  </g>
+
+  <!-- throw blanket -->
+  <path d="M90 900 C 160 860, 230 930, 300 890 C 340 870, 360 900, 340 930 L 100 970 Z" fill="#D7C8A9" opacity="0.85"/>
+
+  <!-- coffee table -->
+  <g>
+    <rect x="700" y="1080" width="360" height="26" rx="6" fill="#5C4A34"/>
+    <rect x="720" y="1106" width="18" height="140" fill="#4A3B29"/>
+    <rect x="1030" y="1106" width="18" height="140" fill="#4A3B29"/>
+    <rect x="720" y="1230" width="328" height="14" fill="#4A3B29"/>
+  </g>
+
+  <!-- mug + remote on table -->
+  <circle cx="900" cy="1058" r="26" fill="#4C5438"/>
+  <rect x="890" y="1032" width="20" height="26" rx="4" fill="#4C5438"/>
+  <rect x="960" y="1048" width="70" height="20" rx="6" fill="#3A3E2C"/>
+
+  <!-- figure cleaning, bent over table -->
+  <g fill="#3D4330">
+    <circle cx="820" cy="760" r="34"/>
+    <path d="M786 792 C 760 830, 740 900, 770 990 C 800 1050, 870 1080, 940 1060 C 1000 1044, 1010 990, 980 950 C 950 912, 900 900, 870 860 C 858 844, 850 812, 830 794 Z" opacity="0.92"/>
+  </g>
+  <!-- arm reaching to table -->
+  <path d="M900 900 C 940 930, 960 970, 940 1010" stroke="#3D4330" stroke-width="26" stroke-linecap="round" fill="none" opacity="0.92"/>
+  <!-- cloth in hand -->
+  <rect x="920" y="1000" width="46" height="30" rx="8" fill="#DCD3BE" transform="rotate(18 943 1015)"/>
+
+  <!-- toys on floor -->
+  <rect x="230" y="1330" width="34" height="34" rx="6" fill="#B08B57" opacity="0.8"/>
+  <circle cx="330" cy="1350" r="18" fill="#8C6E4C" opacity="0.8"/>
+
+  <rect width="1200" height="1500" filter="url(#heroGrain)" opacity="0.5"/>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-labelledby="s1">
+  <title id="s1">Icon representing a standard home clean</title>
+  <rect width="400" height="300" fill="#EAE6DE"/>
+  <g stroke="#4C5438" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M160 230 L230 130"/>
+    <path d="M160 230 L120 245 L145 200 Z" fill="#4C5438"/>
+    <path d="M210 150 l40 -40 20 20 -40 40"/>
+  </g>
+  <g fill="#4C5438" opacity="0.6">
+    <circle cx="290" cy="90" r="4"/>
+    <circle cx="270" cy="70" r="3"/>
+    <circle cx="305" cy="70" r="3"/>
+  </g>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-labelledby="s4">
+  <title id="s4">Icon representing recurring cleaning care</title>
+  <rect width="400" height="300" fill="#EAE6DE"/>
+  <g stroke="#4C5438" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="140" y="120" width="120" height="110" rx="12"/>
+    <line x1="140" y1="150" x2="260" y2="150"/>
+    <line x1="170" y1="105" x2="170" y2="130"/>
+    <line x1="230" y1="105" x2="230" y2="130"/>
+    <path d="M275 185 a35 35 0 1 1 -10 -25" />
+    <path d="M275 155 v20 h-20" fill="none"/>
+  </g>
+</svg>

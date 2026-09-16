@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" role="img" aria-labelledby="t4">
+  <title id="t4">Placeholder image representing careful, hands-on cleaning work</title>
+  <defs>
+    <linearGradient id="g4" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F4F1EA"/>
+      <stop offset="1" stop-color="#D2CDC2"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="700" fill="url(#g4)"/>
+  <g opacity="0.85">
+    <rect x="240" y="380" width="440" height="220" rx="16" fill="#A7A98A"/>
+    <rect x="260" y="350" width="400" height="70" rx="14" fill="#96977B"/>
+  </g>
+  <path d="M470 300 C 500 330, 520 360, 500 400" stroke="#3D4330" stroke-width="26" stroke-linecap="round" fill="none"/>
+  <rect x="470" y="380" width="60" height="36" rx="10" fill="#FBF9F4" stroke="#50583C" stroke-width="4" transform="rotate(-12 500 398)"/>
+  <circle cx="430" cy="250" r="34" fill="#3D4330"/>
+</svg>

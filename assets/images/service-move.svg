@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-labelledby="s3">
+  <title id="s3">Icon representing a move in or move out clean</title>
+  <rect width="400" height="300" fill="#EAE6DE"/>
+  <g stroke="#4C5438" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="130" y="150" width="80" height="70" rx="6"/>
+    <line x1="130" y1="185" x2="210" y2="185"/>
+    <rect x="215" y="130" width="70" height="90" rx="6"/>
+    <line x1="215" y1="175" x2="285" y2="175"/>
+  </g>
+</svg>
