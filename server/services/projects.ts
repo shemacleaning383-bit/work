@@ -341,6 +341,7 @@ export function projectView(ctx: Ctx, projectId: string, opts: { sinceEvent?: nu
     chosenVariant: variant,
     sitePages: cur && variant && ['site_ready', 'paid', 'launching', 'live'].includes(p.status) ? sitePages({ ...cur.content, variant }) : [],
     siteVersions: versions,
+    currentSite: cur ? { overrides: cur.content.overrides as Record<string, string>, sections: cur.content.sections as unknown as Record<string, boolean>, copy: cur.content.copy as unknown as Record<string, string> } : null,
     changeRequests: crs,
     subscription,
     domain,

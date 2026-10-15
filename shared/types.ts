@@ -208,6 +208,8 @@ export interface ProjectView {
   chosenVariant: 'a' | 'b' | null;
   sitePages: { slug: string; title: string }[];
   siteVersions: SiteVersionView[];
+  /** Editable presentation settings of the current version. */
+  currentSite: { overrides: Record<string, string>; sections: Record<string, boolean>; copy: Record<string, string> } | null;
   changeRequests: ChangeRequestView[];
   subscription: SubscriptionView;
   domain: DomainView;

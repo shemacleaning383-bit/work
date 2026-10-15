@@ -6,6 +6,7 @@ import type { AddressInfo } from 'node:net';
 process.env.DATA_DIR = mkdtempSync(join(tmpdir(), 'bluepark-test-'));
 process.env.DEMO_STAGE_DELAY_MS = '0';
 process.env.REQUIRE_LAUNCH_REVIEW = 'false';
+process.env.RATE_LIMIT_SCALE = '1000';
 
 const { createApp } = await import('../server/app.ts');
 
@@ -20,7 +21,7 @@ export async function startTestApp(opts: Parameters<typeof createApp>[0] = {}) {
     base,
     client: () => new Client(base),
     drain: () => app.worker.drain(200),
-    close: () => new Promise<void>((r) => app.server.close(() => r())),
+    close: () => new Promise<void>((r) => { app.server.closeAllConnections(); app.server.close(() => r()); }),
   };
 }
 

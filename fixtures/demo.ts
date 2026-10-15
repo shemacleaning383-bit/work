@@ -196,19 +196,6 @@ export const MAPLE: CandidateInternal = {
   },
 };
 
-export const SAMPLE_INQUIRIES = [
-  {
-    name: 'Sample: Priya (demo)',
-    phone: '+14165550190',
-    email: 'priya@mail.example',
-    service: 'Deep cleaning',
-    area: 'Leslieville',
-    property_details: '2-bedroom condo, 1 bathroom',
-    preferred_timing: 'A weekday morning next week',
-    message: 'Sample inquiry created for the demo. Not a real customer.',
-  },
-];
-
 /** Demo rule: these destinations simulate a delivery failure. */
 export function demoShouldFail(destination: string): boolean {
   return /fail/i.test(destination) || destination.endsWith('0199');

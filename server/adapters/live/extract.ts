@@ -4,14 +4,9 @@
 import { SERVICE_CATALOG } from '../../../shared/types.ts';
 import { normalizePhone, isEmail, clampText } from '../../../shared/validate.ts';
 import type { Observations } from '../types.ts';
+import { GTA_AREAS } from '../../../shared/areas.ts';
 
-export const GTA_AREAS = [
-  'Toronto', 'North York', 'Scarborough', 'Etobicoke', 'East York', 'York', 'Mississauga', 'Brampton',
-  'Vaughan', 'Markham', 'Richmond Hill', 'Oakville', 'Burlington', 'Pickering', 'Ajax', 'Whitby',
-  'Oshawa', 'Newmarket', 'Aurora', 'Milton', 'Caledon', 'King City', 'Stouffville', 'Thornhill',
-  'Leslieville', 'Riverdale', 'The Danforth', 'The Beaches', 'Liberty Village', 'Yorkville', 'The Annex',
-  'Leaside', 'Midtown', 'Downtown Toronto', 'High Park', 'Roncesvalles', 'Parkdale', 'Junction',
-];
+export { GTA_AREAS };
 
 const SERVICE_PATTERNS: [string, RegExp][] = [
   ['Recurring cleaning', /\b(recurring|weekly|bi-?weekly|regular|maintenance)\s+clean/i],

@@ -142,6 +142,9 @@ export function serveStatic(res: Res, root: string, rel: string, opts: { immutab
 // ---------- rate limiting (in-memory token buckets) ----------
 const buckets = new Map<string, { tokens: number; at: number }>();
 export function rateLimit(key: string, perMinute: number, burst = perMinute): boolean {
+  const scale = Number(process.env.RATE_LIMIT_SCALE ?? 1) || 1;
+  perMinute *= scale;
+  burst *= scale;
   const nowMs = Date.now();
   const b = buckets.get(key) ?? { tokens: burst, at: nowMs };
   b.tokens = Math.min(burst, b.tokens + ((nowMs - b.at) / 60_000) * perMinute);

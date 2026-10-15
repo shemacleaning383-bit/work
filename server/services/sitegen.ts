@@ -233,14 +233,14 @@ footer.site a{color:inherit}footer.site .cols{display:grid;gap:24px}
   if (c.variant === 'a') {
     return `:root{--accent:${accent};--on-accent:${onAccent};--ink:#10213a;--muted:#4a5a70;--bg:#ffffff;--tint:${accent}14;--line:#e3e8ef;--line-strong:#b9c3d0;--radius:14px;--body:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--display:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--foot-bg:#0f1d33;--foot-ink:#dfe7f3;--bar-h:76px}
 ${base}
-.hero{padding:28px 0 40px;text-align:center}.hero .illo{margin:0 auto 22px;width:100%;max-width:440px;border-radius:28px}
+.hero{padding:28px 0 40px;text-align:center}.hero .illo{margin:28px auto 0;width:100%;max-width:440px;border-radius:28px}
 .hero .lede{margin:0 auto 22px}.hero .actions{display:grid;gap:10px;max-width:420px;margin:0 auto}
 .cards{display:grid;gap:14px;padding:0;list-style:none;margin:0}.cards li{border:1px solid var(--line);border-radius:18px;padding:20px;background:#fff}
 .cards .ico{width:40px;height:40px;border-radius:12px;background:var(--tint);display:grid;place-items:center;margin-bottom:10px}.cards .ico svg{width:22px;fill:var(--accent)}
 .alt{background:#f5f8fc}
 .cta-band{background:var(--accent);color:var(--on-accent);border-radius:24px;padding:32px 22px;text-align:center}.cta-band .btn{background:var(--on-accent);color:var(--accent);border-color:var(--on-accent)}
 .mbar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);border-top:1px solid var(--line);backdrop-filter:blur(8px)}
-@media (min-width:760px){.mbar{display:none}footer.site{padding-bottom:40px}.cards{grid-template-columns:repeat(3,1fr)}.hero{text-align:left;display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}.hero .illo{order:2;margin:0}.hero .lede{margin:0 0 22px}.hero .actions{grid-auto-flow:column;max-width:none;justify-content:start}}
+@media (min-width:760px){.mbar{display:none}footer.site{padding-bottom:40px}.cards{grid-template-columns:repeat(3,1fr)}.hero{text-align:left}.hero-in{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}.hero .illo{margin:0}.hero .lede{margin:0 0 22px}.hero .actions{grid-auto-flow:column;max-width:none;justify-content:start}}
 `;
   }
   return `:root{--accent:${accent};--on-accent:${onAccent};--ink:#1d1a16;--muted:#5d564c;--bg:#faf7f2;--tint:#efe8dc;--line:#e4dccf;--line-strong:#c9bfae;--radius:6px;--body:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--display:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;--foot-bg:#1d1a16;--foot-ink:#efe8dc}
@@ -351,7 +351,7 @@ export function renderPage(c: SiteContent, o: RenderOpts): string {
 
   if (page === '') {
     if (c.variant === 'a') {
-      main = `<section class="hero"><div class="wrap hero">${illoOrPhoto}<div><h1>${esc(t(c, 'heroTitle'))}</h1><p class="lede">${esc(t(c, 'heroSub'))}</p><div class="actions">${quoteBtn}${callBtn}${bookingBtn}</div></div></div></section>
+      main = `<section class="hero"><div class="wrap hero-in"><div><h1>${esc(t(c, 'heroTitle'))}</h1><p class="lede">${esc(t(c, 'heroSub'))}</p><div class="actions">${quoteBtn}${callBtn}${bookingBtn}</div></div>${illoOrPhoto}</div></section>
 <section class="alt" id="services" aria-labelledby="sv"><div class="wrap"><h2 id="sv">Services</h2>${servicesBlock(c, quoteHref)}</div></section>
 ${photosBlock(c)}
 ${c.sections.areas && b.areas.length ? `<section id="areas" aria-labelledby="ar"><div class="wrap"><h2 id="ar">Areas we serve</h2><ul class="chips">${b.areas.map((a) => `<li>${esc(a)}</li>`).join('')}</ul></div></section>` : ''}
@@ -383,7 +383,7 @@ ${infoBlock(c)}`;
 
   const bar = c.variant === 'a' ? `<div class="mbar">${b.phone ? `<a class="btn btn-ghost" href="tel:${esc(b.phone)}">Call</a>` : `<span></span>`}<a class="btn btn-primary" href="${quoteHref}">${b.mainAction === 'quote' ? 'Get a quote' : 'Contact'}</a></div>` : '';
   const script = o.mode === 'preview'
-    ? `<script>document.addEventListener('submit',function(e){var f=e.target;if(f&&f.dataset&&f.dataset.preview){e.preventDefault();var n=f.querySelector('.preview-note');if(n){n.classList.add('show');n.scrollIntoView({block:'center'});}}});</script>`
+    ? `<script>(function(){function note(f){var n=f.querySelector('.preview-note');if(n){n.classList.add('show');n.scrollIntoView({block:'center'});}}document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('form[data-preview] [type=submit]');if(b){e.preventDefault();note(b.form);}});document.addEventListener('submit',function(e){var f=e.target;if(f&&f.dataset&&f.dataset.preview){e.preventDefault();note(f);}});})();</script>`
     : '';
   const docTitle = page === '' ? `${b.name}${b.city ? ` | Cleaning in ${b.city}` : ''}` : `${title} | ${b.name}`;
   const desc = `${b.name}: ${b.services.slice(0, 3).join(', ')}${b.city ? ` in ${b.city}` : ''}.`;
