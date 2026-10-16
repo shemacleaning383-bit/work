@@ -31,7 +31,7 @@ export const config = {
   isDemo: mode === 'demo',
   port: num('PORT', 3000),
   host: env('HOST', '0.0.0.0'),
-  publicBaseUrl: env('PUBLIC_BASE_URL', `http://localhost:${num('PORT', 3000)}`),
+  publicBaseUrl: env('PUBLIC_BASE_URL') || env('RENDER_EXTERNAL_URL') || `http://localhost:${num('PORT', 3000)}`,
   dataDir: resolve(env('DATA_DIR', 'data')),
   sessionSecret: env('SESSION_SECRET', mode === 'demo' ? 'demo-only-not-secret-change-me' : ''),
   adminPassword: env('ADMIN_PASSWORD'),

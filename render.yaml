@@ -1,16 +1,16 @@
-# One-click deploy on Render: Dashboard → New → Blueprint → pick this repo/branch.
+# One-click deploy on Render: Dashboard → New → Blueprint → pick this repo.
+# The public URL is picked up automatically from Render's RENDER_EXTERNAL_URL.
 services:
   - type: web
     name: blue-park
     runtime: docker
     plan: free
+    branch: claude/friendly-ptolemy-qnae9b
     healthCheckPath: /api/config
     envVars:
       - key: BLUEPARK_MODE
         value: demo
-      - key: PUBLIC_BASE_URL
-        sync: false        # set to the URL Render gives you, e.g. https://blue-park.onrender.com
       - key: ADMIN_PASSWORD
-        sync: false        # set one so strangers can't open /admin on the public demo
+        sync: false        # Render asks for this when you create the Blueprint; it locks /admin
       - key: SECURE_COOKIES
         value: "true"

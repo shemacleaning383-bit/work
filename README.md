@@ -108,7 +108,7 @@ npx wrangler secret put ADMIN_PASSWORD      # locks /admin on the public demo
 npx wrangler deploy                         # needs Docker running; prints https://blue-park.<you>.workers.dev
 ```
 
-**Render** (has a free tier): Dashboard → New → Blueprint → choose this repo and branch. `render.yaml` sets it up. Then set `PUBLIC_BASE_URL` to the URL Render gives you, and set `ADMIN_PASSWORD`.
+**Render** (has a free tier): Dashboard → New → Blueprint → choose this repo and branch. `render.yaml` sets it up. Render asks for `ADMIN_PASSWORD` during setup; the public URL is detected automatically.
 
 Netlify only hosts static sites and serverless functions, so it can't run this server.
 
