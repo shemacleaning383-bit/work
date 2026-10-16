@@ -96,6 +96,24 @@ Set `BLUEPARK_MODE=live` and the values in `.env.example`. In live mode, each ad
 | Email / SMS | Resend / Telnyx keys | sign-in codes and notifications unavailable on that channel |
 | Hosting | deploy behind HTTPS at `PUBLIC_BASE_URL`; customer domains point at `HOSTING_CNAME_TARGET` / `HOSTING_APEX_IP` | — |
 
+## Deploy (public demo link)
+
+The Docker image is ready (`Dockerfile`). Pick one:
+
+**Cloudflare Containers** (Workers Paid plan). The Worker in `deploy/cloudflare` forwards all traffic to one container:
+```bash
+cd deploy/cloudflare && npm install
+npx wrangler login                          # or set CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID
+npx wrangler secret put ADMIN_PASSWORD      # locks /admin on the public demo
+npx wrangler deploy                         # needs Docker running; prints https://blue-park.<you>.workers.dev
+```
+
+**Render** (has a free tier): Dashboard → New → Blueprint → choose this repo and branch. `render.yaml` sets it up. Then set `PUBLIC_BASE_URL` to the URL Render gives you, and set `ADMIN_PASSWORD`.
+
+Netlify only hosts static sites and serverless functions, so it can't run this server.
+
+Container storage is temporary on both. Demo previews reset when the container restarts or sleeps.
+
 ## Known gaps before production
 
 - **Live adapters are untested against real services.** The Google Places, Stripe, Telnyx and Resend adapters follow those providers' documented REST APIs but have never run with real keys. The website crawl was not exercised against the public internet either, because this build environment has no outbound DNS. Test each in staging first.

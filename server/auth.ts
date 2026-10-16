@@ -139,7 +139,8 @@ export function adminLogin(ctx: Ctx, res: ServerResponse, password: string): boo
 }
 
 export function demoAdminLogin(ctx: Ctx, res: ServerResponse): boolean {
-  if (!ctx.demo) return false;
+  // A public demo with ADMIN_PASSWORD set must not expose the one-tap admin.
+  if (!ctx.demo || config.adminPassword) return false;
   createSession(ctx, res, null, true);
   return true;
 }
