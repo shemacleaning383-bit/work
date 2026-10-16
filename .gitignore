@@ -4,3 +4,4 @@ data/
 *.log
 /scratch/
 .wrangler/
+dist-static/
