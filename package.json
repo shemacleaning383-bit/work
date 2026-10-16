@@ -1,0 +1,25 @@
+{
+  "name": "blue-park",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Blue Park \u2014 mobile-first website platform for cleaning businesses",
+  "type": "module",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning server/main.ts",
+    "dev": "BLUEPARK_MODE=demo node --disable-warning=ExperimentalWarning --watch server/main.ts",
+    "test": "node --disable-warning=ExperimentalWarning --test tests/*.test.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "check": "npm run typecheck && npm test",
+    "ui:check": "node --disable-warning=ExperimentalWarning scripts/ui-check.ts",
+    "examples": "node --disable-warning=ExperimentalWarning scripts/make-examples.ts",
+    "export:static": "node --disable-warning=ExperimentalWarning scripts/export-static.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "playwright-core": "1.56",
+    "typescript": "5.9"
+  }
+}

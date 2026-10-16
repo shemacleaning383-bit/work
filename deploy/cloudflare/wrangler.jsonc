@@ -1,0 +1,15 @@
+// Cloudflare Containers (Workers Paid plan). From the repo root:
+//   cd deploy/cloudflare && npm install && npx wrangler deploy
+// The Worker forwards every request to one long-running container built from ../../Dockerfile.
+{
+  "name": "blue-park",
+  "main": "worker.ts",
+  "compatibility_date": "2026-10-01",
+  "containers": [
+    { "class_name": "BlueParkContainer", "image": "../../Dockerfile", "max_instances": 1 }
+  ],
+  "durable_objects": {
+    "bindings": [{ "name": "BLUEPARK", "class_name": "BlueParkContainer" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["BlueParkContainer"] }]
+}

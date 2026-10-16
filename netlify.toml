@@ -1,0 +1,8 @@
+# Netlify hosts the STATIC preview only (landing, sample sites, walkthrough).
+# The interactive app needs the Node server: see Dockerfile / render.yaml / deploy/cloudflare.
+[build]
+  command = "npm run export:static"
+  publish = "dist-static"
+
+[build.environment]
+  NODE_VERSION = "22"
